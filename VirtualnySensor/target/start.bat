@@ -1,0 +1,1 @@
+java -jar VirtualnySensor-1.0-SNAPSHOT.jar http://localhost:8080/data

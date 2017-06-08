@@ -1,0 +1,466 @@
+FORMAT: 1A
+
+
+# IoT
+
+## uzivatel [//uzivatel]
+
+### list uzivatelov [GET /uzivatel{?meno}{?priezvisko}]
+
++ Parameters 
+    + meno (string, optional)
+    + priezvisko (string, optional)
+
++ Response 200 (application/json)
+
+        [
+            {
+            "id":1,
+            "meno": "meno1",
+            "priezvisko": "priezvisko"
+            },
+            {
+            "id":2,
+            "meno": "meno2",
+            "priezvisko": "priezvisko"
+            },
+            {
+            "id":13,
+            "meno": "meno3",
+            "priezvisko": "priezvisko"
+            }
+        ]
+
+### vytvor uzivatela [POST]
+
+
+
++ Request (application/json)
+
+        {
+            "id":1,
+            "meno": "meno1",
+            "priezvisko": "priezvisko"
+        }
+
++ Response 201 (application/json)
+    + Body
+    
+            {
+            "id":1,
+            "meno": "meno1",
+            "priezvisko": "priezvisko"
+            }
+
+### uprav uzivatela [PUT]
+
++ Request (application/json)
+
+        {
+            "id":1,
+            "meno": "meno1",
+            "priezvisko": "priezvisko"
+        }
+        
++ Response 201 (application/json)
+    + Body
+    
+            {
+            "id":1,
+            "meno": "meno1",
+            "priezvisko": "priezvisko"
+            }
+
+### vymaz uzivatela [DELETE]
+
++ Request (application/json)
+
+        {
+            "id":1,
+            "meno": "meno1",
+            "priezvisko": "priezvisko"
+        }
+        
++ Response 200
+    + Body
+    
+            {
+            "id":1,
+            "meno": "meno1",
+            "priezvisko": "priezvisko"
+            }
+
+### uzivatel podla id [GET /uzivatel/{id}]
+
++ Parameters
+
+    + id: 1 (number) - An unique identifier of the message.
+
+
++ Response 200
+    + Body
+    
+            {
+            "id":1,
+            "meno": "meno1",
+            "priezvisko": "priezvisko"
+            }
+
+### vymaz uzivatela podla id [DELETE /uzivatel/{id}]
+
++ Parameters
+
+    + id: 1 (number) - An unique identifier of the message.
+
+
++ Response 200
+    + Body
+    
+            {
+            "id":1,
+            "meno": "meno1",
+            "priezvisko": "priezvisko"
+            }
+
+## zariadenie [/zariadenie]
+
+### list zariadeni [GET /zariadenie{?idUzivatela}{?nazov}]
+
++ Parameters 
+    + idUzivatela (number, optional)
+    + nazov (string, optional)
+
++ Response 200 (application/json)
+
+        [
+            {
+            "id":4,
+            "idUzivatela": 1,
+            nazov": "zar1"
+            },
+            {
+            "id":5,
+            "idUzivatela": 2,
+            nazov": "zar2"
+            },
+            {
+            "id":6,
+            "idUzivatela": 3,
+            nazov": "zar3"
+            }
+        ]
+
+### vytvor zariadenie [POST]
+
+
+
++ Request (application/json)
+
+        {
+            "id":4,
+            "idUzivatela":1,
+            nazov":"zar1"
+        }
+
++ Response 201 (application/json)
+    + Body
+    
+            {
+            "id":4,
+            "idUzivatela": 1,
+            nazov": "zar1"
+            }
+
+### uprav zariadenie [PUT]
+
++ Request (application/json)
+
+        {
+            "id":4,
+            "idUzivatela": 1,
+            nazov": "zar1"
+        }
+        
++ Response 201 (application/json)
+    + Body
+    
+            {
+            "id":4,
+            "idUzivatela": 1,
+            nazov": "zar1"
+            }
+
+### vymaz zariadenie [DELETE]
+
++ Request (application/json)
+
+        {
+            "id":4,
+            "idUzivatela": 1,
+            nazov": "zar1"
+        }
+        
++ Response 200
+    + Body
+    
+            {
+            "id":4,
+            "idUzivatela": 1,
+            nazov": "zar1"
+            }
+
+### zariadenie podla id [GET /zariadenie/{id}]
+
++ Parameters
+
+    + id: 4 (number) - An unique identifier of the message.
+
++ Response 200
+    + Body
+    
+            {
+            "id":4,
+            "idUzivatela": 1,
+            nazov": "zar1"
+            }
+
+### vymaz zariadenie podla id [DELETE /zariadenie/{id}]
+
++ Parameters
+
+    + id: 4 (number) - An unique identifier of the message.
+
++ Response 200
+    + Body
+    
+            {
+            "id":4,
+            "idUzivatela": 1,
+            nazov": "zar1"
+            }
+
+## data [/data]
+
+### list data [GET /data{?idZariadenia}{?nazov}]
+
++ Parameters 
+    + idZariadenia (number, optional)
+    + nazov (string, optional)
+
++ Response 200 (application/json)
+
+        [
+            {
+            "id": 7,
+            "idZariadenia": 4,
+            "nazov": "teplota",
+            "hodnota": 20.9,
+            "jednotka": "celzius",
+            "datum": "15-2-2017"
+            },
+            {
+            "id": 8,
+            "idZariadenia": 5,
+            "nazov": "tlak",
+            "hodnota": 1,
+            "jednotka": "atm",
+            "datum": "15-2-2017"
+            },
+        ]
+
+### vytvor data [POST]
+
+
+
++ Request (application/json)
+
+            {
+            "id": 7,
+            "idZariadenia": 4,
+            "nazov": "teplota",
+            "hodnota": 20.9,
+            "jednotka": "celzius",
+            "datum": "15-2-2017"
+            }
+
++ Response 201 (application/json)
+    + Body
+    
+            {
+            "id": 7,
+            "idZariadenia": 4,
+            "nazov": "teplota",
+            "hodnota": 20.9,
+            "jednotka": "celzius",
+            "datum": "15-2-2017"
+            }
+
+
+### uprav data [PUT]
+
++ Request (application/json)
+
+            {
+            "id": 7,
+            "idZariadenia": 4,
+            "nazov": "teplota",
+            "hodnota": 20.9,
+            "jednotka": "celzius",
+            "datum": "15-2-2017"
+            }
+        
++ Response 201 (application/json)
+    + Body
+    
+            {
+            "id": 7,
+            "idZariadenia": 4,
+            "nazov": "teplota",
+            "hodnota": 20.9,
+            "jednotka": "celzius",
+            "datum": "15-2-2017"
+            }
+
+### vymaz data [DELETE]
+
++ Request (application/json)
+
+            {
+            "id": 7,
+            "idZariadenia": 4,
+            "nazov": "teplota",
+            "hodnota": 20.9,
+            "jednotka": "celzius",
+            "datum": "15-2-2017"
+            }
+        
++ Response 200
+    + Body
+    
+            {
+            "id": 7,
+            "idZariadenia": 4,
+            "nazov": "teplota",
+            "hodnota": 20.9,
+            "jednotka": "celzius",
+            "datum": "15-2-2017"
+            }
+
+### data podla id [GET /data/{id}]
+
++ Parameters
+
+    + id: 7 (number) - An unique identifier of the message.
+
+
++ Response 200
+    + Body
+    
+            {
+            "id": 7,
+            "idZariadenia": 4,
+            "nazov": "teplota",
+            "hodnota": 20.9,
+            "jednotka": "celzius",
+            "datum": "15-2-2017"
+            }
+
+### vymaz data podla id [DELETE /data/{id}]
+
++ Parameters
+
+    + id: 7 (number) - An unique identifier of the message.
+
++ Response 200
+    + Body
+    
+            {
+            "id": 7,
+            "idZariadenia": 4,
+            "nazov": "teplota",
+            "hodnota": 20.9,
+            "jednotka": "celzius",
+            "datum": "15-2-2017"
+            }
+
+## HTML uzivatel [/HTML/uzivatel]
+
+### uzivatel HTML [GET /HTML/uzivatel{?id}]
++ Parameters
+    + id (number, optional)
+
++ Response 200 (TEXT_HTML)
+
+        www stranka
+
+### uzivatel HTML/new [GET /HTML/uzivatel{?meno}{?priezvisko}]
++ Parameters
+    + meno (string, optional)
+    + priezvisko (string, optional)
+
++ Response 200 (TEXT_HTML)
+
+        www stranka
+### uzivatel HTML/delete [GET /HTML/uzivatel/delete{?id}]
++ Parameters
+    + id (string, optional)
+
++ Response 200 (TEXT_HTML)
+
+        www stranka
+
+## HTML zariadenie [/HTML/zariadenie]
+
+### zariadenie HTML [GET /HTML/zariadenie{?id}]
++ Parameters
+    + id (number, optional)
+
++ Response 200 (TEXT_HTML)
+
+        www stranka
+
+### zariadenie HTML/new [GET /HTML/zariadenie{?idUzivatela}{?nazov}]
++ Parameters
+    + idUzivatela (number, optional)
+    + nazov (string, optional)
+
++ Response 200 (TEXT_HTML)
+
+        www stranka
+        
+### zariadenie HTML/delete [GET /HTML/zariadenie/delete{?id}]
++ Parameters
+    + id (string, optional)
+
++ Response 200 (TEXT_HTML)
+
+        www stranka
+
+## HTML data [/HTML/data]
+
+### data HTML [GET /HTML/data{?id}]
++ Parameters
+    + id (number, optional)
+
++ Response 200 (TEXT_HTML)
+
+        www stranka
+
+### data HTML/new [GET /HTML/data{?idZariadenia}{?nazov}{?hodnota}{?jednotka}]
++ Parameters
+    + idZariadenia (number, optional)
+    + nazov (string, optional)
+    + hodnota (number , optional)
+    + jednotka (string, optional)
+
++ Response 200 (TEXT_HTML)
+
+        www stranka
+        
+### data HTML/delete [GET /HTML/data/delete{?id}]
++ Parameters
+    + id (string, optional)
+
++ Response 200 (TEXT_HTML)
+
+        www stranka

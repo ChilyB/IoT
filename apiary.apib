@@ -385,15 +385,16 @@ FORMAT: 1A
 
 ## HTML uzivatel [/HTML/uzivatel]
 
-### uzivatel HTML [GET /HTML/uzivatel{?id}]
+### uzivatel HTML [GET /HTML/uzivatel{?meno}{?priezvisko}]
 + Parameters
-    + id (number, optional)
-
+    + meno (string, optional)
+    + priezvisko (string, optional)
+    
 + Response 200 (TEXT_HTML)
 
         www stranka
 
-### uzivatel HTML/new [GET /HTML/uzivatel{?meno}{?priezvisko}]
+### uzivatel HTML/new [GET /HTML/uzivatel/new{?meno}{?priezvisko}]
 + Parameters
     + meno (string, optional)
     + priezvisko (string, optional)
@@ -411,15 +412,15 @@ FORMAT: 1A
 
 ## HTML zariadenie [/HTML/zariadenie]
 
-### zariadenie HTML [GET /HTML/zariadenie{?id}]
+### zariadenie HTML [GET /HTML/zariadenie{?nazov}{idUzivatela}]
 + Parameters
-    + id (number, optional)
-
+    + idUzivatela (number, optional)
+    + nazov (string, optional)
 + Response 200 (TEXT_HTML)
 
         www stranka
 
-### zariadenie HTML/new [GET /HTML/zariadenie{?idUzivatela}{?nazov}]
+### zariadenie HTML/new [GET /HTML/zariadenie/new{?idUzivatela}{?nazov}]
 + Parameters
     + idUzivatela (number, optional)
     + nazov (string, optional)
@@ -446,7 +447,7 @@ FORMAT: 1A
 
         www stranka
 
-### data HTML/new [GET /HTML/data{?idZariadenia}{?nazov}{?hodnota}{?jednotka}]
+### data HTML/new [GET /HTML/data/new{?idZariadenia}{?nazov}{?hodnota}{?jednotka}]
 + Parameters
     + idZariadenia (number, optional)
     + nazov (string, optional)
